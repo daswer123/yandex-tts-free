@@ -47,16 +47,22 @@ pip install yandex-tts-free
 
 ```python
 from yandex_tts_free import YandexFreeTTS
+import os
 
 tts = YandexFreeTTS()
 output_path = 'output'
+
+# Создаем папку если её нет
+if not os.path.exists(output_path):
+    os.makedirs(output_path)
+
 text = 'Это тестовый текст для проверки голосов.'
 
 # Генерация речи с голосом levitan и нейтральным настроением
-tts.generate_speech(output_path, 'test.mp3', text, 'levitan')
+tts.generate_speech_ya(output_path, 'test.mp3', text, 'levitan')
 
 # Генерация речи с голосом oksana и настроением good
-tts.generate_speech(output_path, 'test_good.mp3', text, 'oksana', 'good')
+tts.generate_speech_ya(output_path, 'test_good.mp3', text, 'oksana', 'good')
 ```
 
 ## Отказ от ответственности
